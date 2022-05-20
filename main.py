@@ -15,5 +15,5 @@ def consume_event():
 
     print(f'verify: {verify}')
 
-    print(request.get_json())
+    print(request.data)
     return jsonify({}), 200
