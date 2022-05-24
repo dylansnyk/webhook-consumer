@@ -4,6 +4,7 @@
 
 Latest docs for creating a Snyk Webhook found here: https://snyk.docs.apiary.io/#reference/webhooks/webhook-collection/create-a-webhook
 
+For your convenience, here is the required API call to make:
 ```
 curl --location --request POST 'https://snyk.io/api/v1/org/ORG_ID/webhooks' \
 --header 'Authorization: token SNYK_API_TOKEN' \
