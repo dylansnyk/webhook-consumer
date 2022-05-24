@@ -1,19 +1,29 @@
-import re
 from flask import Flask, jsonify, request
 from util import verify_signature
 
 app = Flask(__name__)
 
 @app.route("/healthcheck", methods=['GET'])
-def hello_world():
+def health_check():
     return jsonify({"status": "up"})
 
 @app.route("/event", methods=['POST'])
 def consume_event():
 
-    verify = verify_signature(request)
+    is_valid = verify_signature(request)
 
-    print(f'verify: {verify}')
+    print('event received - is valid:', is_valid)
 
-    print(request.data)
+    # process event only if verified
+    if is_valid:
+        event = request.get_json()
+
+        # log event
+        print('event type:', request.headers['X-Snyk-Event'])
+        print('event body:', event)
+
+        # process event
+        for new_issue in event['newIssues']:
+            print('new issue found:', new_issue['id'])
+
     return jsonify({}), 200
