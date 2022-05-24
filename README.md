@@ -13,7 +13,7 @@ curl --location --request POST 'https://snyk.io/api/v1/org/ORG_ID/webhooks' \
     "secret": "SECRET_VALUE"
 }'
 ```
-## Run Webhook Consumer in Heroku
+## Run Snyk Webhook Consumer in Heroku
 
 Sign up / log in to Heroku: https://id.heroku.com/login
 
