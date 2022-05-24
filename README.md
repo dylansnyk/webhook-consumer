@@ -1,18 +1,40 @@
-Running the API locally
+# Snyk Webhook Consumer
 
-### Create virtual environment
+## Create the Webhook
 
-`python -m venv env`
+Latest docs for creating a Snyk Webhook found here: 
 
-### Activate the environment
+```
+curl --location --request POST 'https://snyk.io/api/v1/org/ORG_ID/webhooks' \
+--header 'Authorization: token SNYK_API_TOKEN' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "url": "https://your-url-to-consume-event.herokuapp.com/event",
+    "secret": "SECRET_VALUE"
+}'
+```
+## Run Webhook Consumer in Heroku
 
-`source ./env/bin/activate`
+Sign up / log in to Heroku: https://id.heroku.com/login
 
-### Install dependencies
+Create a new app in Heroku: https://dashboard.heroku.com/new-app
 
-`pip3 install -r requirements.txt`
+Add your `WEBHOOK_SECRET` config var in the Settings tab of the app in Heroku
 
-### Run application in develop mode
+Deploy in Heroku by configuring either the CLI or GitHub Deployment Method, found in the Deploy tab of the newly created app in Heroku
 
-`export FLASK_APP=main`
-`flask run`
+Verify the app is running correctly by tailing the logs within Heroku
+
+## Local Development
+
+Create virtual environment: `python -m venv env`
+
+Activate the environment: `source ./env/bin/activate`
+
+Install dependencies: `pip3 install -r requirements.txt`
+
+Run application in develop mode: 
+```
+export FLASK_APP=main
+flask run
+```
