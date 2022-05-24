@@ -15,11 +15,10 @@ def consume_event():
     print('event received - is valid:', is_valid)
 
     # process event only if verified
-    if is_valid:
+    if is_valid and request.headers['X-Snyk-Event'] == 'project_snapshot/v0':
         event = request.get_json()
 
         # log event
-        print('event type:', request.headers['X-Snyk-Event'])
         print('event body:', event)
 
         # process event
