@@ -25,6 +25,11 @@ Deploy in Heroku by configuring either the CLI or GitHub Deployment Method, foun
 
 Verify the app is running correctly by tailing the logs within Heroku
 
+## Modifying Snyk Webhook Consumer
+
+This repo can be forked, then modify the following section of code. This is where they logic can be added to process the event and connect to other APIs as needed:
+https://github.com/dylansnyk/webhook-consumer/blob/6b4d30c194dab41ca99c4954f849981ba54f999e/main.py#L24
+
 ## Local Development
 
 Create virtual environment: `python -m venv env`
