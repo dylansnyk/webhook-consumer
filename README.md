@@ -2,7 +2,7 @@
 
 ## Create the Webhook
 
-Latest docs for creating a Snyk Webhook found here: 
+Latest docs for creating a Snyk Webhook found here: https://snyk.docs.apiary.io/#reference/webhooks/webhook-collection/create-a-webhook
 
 ```
 curl --location --request POST 'https://snyk.io/api/v1/org/ORG_ID/webhooks' \
