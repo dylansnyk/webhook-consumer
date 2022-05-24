@@ -11,7 +11,7 @@ curl --location --request POST 'https://snyk.io/api/v1/org/ORG_ID/webhooks' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "url": "https://your-url-to-consume-event.herokuapp.com/event",
-    "secret": "SECRET_VALUE"
+    "secret": "WEBHOOK_SECRET"
 }'
 ```
 ## Run Snyk Webhook Consumer in Heroku
